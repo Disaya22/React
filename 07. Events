@@ -1,0 +1,97 @@
+1. Events in React
+Just like HTML DOM events, 
+React can perform actions based on user events.
+
+React has the same events as HTML: click, change, mouseover etc.
+
+2. Adding Events
+2.1 React events are written in camelCase syntax:
+
+onClick instead of onclick.
+
+2.2 React event handlers are written inside curly braces:
+
+onClick={shoot}  instead of onclick="shoot()".
+
+for example:
+
+React: <button onClick={shoot}>Take the Shot!</button>
+
+HTML: <button onclick="shoot()">Take the Shot!</button>
+
+
+Put the shoot function inside the Football component:
+
+file index.html
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function Football() {
+  const shoot = () => {
+    alert("Great Shot!");
+  }
+
+  return (
+    <button onClick={shoot}>Take the shot!</button>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Football />);
+
+
+3. Passing arguments
+To pass an argument to an event handler, use an arrow function.
+
+Send "Goal!" as a parameter to the shoot function, 
+using arrow function:
+
+file index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function Football() {
+  const shoot = (a) => {
+    alert(a);
+  }
+
+  return (
+    <button onClick={() => shoot("Goal!")}>Take the shot!</button>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Football />);
+
+
+4. Event object
+Event handlers have access to the React 
+event that triggered the function.
+
+In our example the event is the "click" event.
+
+**This will come in handy when we look at Form in a later chapter.
+
+Arrow Function: Sending the event object manually:
+
+file index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function Football() {
+  const shoot = (a, b) => {
+    alert(b.type); //type of b is a click event
+		/*
+		'b' represents the React event that triggered the function.
+    In this case, the 'click' event
+		*/
+  }
+
+  return (
+    <button onClick={(event) => shoot("Goal!", event)}>Take the shot!</button>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Football />);
+

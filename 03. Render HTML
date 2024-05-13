@@ -1,0 +1,69 @@
+React's goal is in many ways to render HTML 
+in a web page.
+
+React renders HTML to the web page 
+by using a function called createRoot() 
+and its method render().
+
+
+1. The createRoot Function
+The createRoot() function takes one argument,
+ an HTML element.
+
+The purpose of the function is to define the HTML element 
+where a React component should be displayed.
+จะดูว่า  element ไหนที่ react component จะไปแสดง
+
+2. The render Method
+
+
+
+3. The HTML Code
+
+file index.html
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const myelement = (
+  <table>
+    <tr>
+      <th>Name</th>
+    </tr>
+    <tr>
+      <td>John</td>
+    </tr>
+    <tr>
+      <td>Elsa</td>
+    </tr>
+  </table>
+);
+
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(myelement);
+
+
+4. The Root Node
+The root node is the HTML element where you want to display the result.
+It is like a container for content managed by React.
+It does NOT have to be a <div> element and it does NOT have to have the id='root':
+
+file index.html()
+<body>
+  <header id="sandy"></header>
+</body>
+
+
+file index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const container = document.getElementById('sandy');
+const root = ReactDOM.createRoot(container);
+root.render(<p>Hallo</p>);
+
+/*
+For this example to work on your project,
+you must have a element with
+id="sandy" on your "index.html" page.
+*/

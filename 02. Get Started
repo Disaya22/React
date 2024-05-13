@@ -1,0 +1,16 @@
+1. Setting up a React Environment
+
+Run this command to create a React application named my-react-app:
+
+npx create-react-app my-react-app
+
+The create-react-app will set up everything you need to run a React application.
+
+
+2. Run the React Application
+
+
+3. Modify the React Application
+
+
+4. What's Next?
